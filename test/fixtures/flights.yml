@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 1
+  airline: MyString
+  origin_city: MyString
+  destination_city: MyString
+  cost: 1
+  direct: false
+
+two:
+  number: 1
+  airline: MyString
+  origin_city: MyString
+  destination_city: MyString
+  cost: 1
+  direct: false
