@@ -1,0 +1,19 @@
+<%= form_for @flight, controller: 'flights', action: 'create' do |f| %>
+<%= f.label "Flight Number" %>
+<%= f.number_field :number %>
+<br></br>
+<%= f.label "Airline" %>
+<%= f.text_field :airline %>
+<br></br>
+<%= f.label "Origin City" %>
+<%= f.text_field :origin_city %>
+<br></br>
+<%= f.label "Destination City" %>
+<%= f.text_field :destination_city %>
+<br></br>
+<%= f.label "Cost" %>
+<%= f.number_field :cost %>
+<br></br>
+<%= f.label "Check the box if the flight is direct." %>
+<%= f.check_box :direct %>
+<%= f.submit %>
