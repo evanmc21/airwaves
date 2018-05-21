@@ -1,4 +1,6 @@
 class Airline < ApplicationRecord
-  belongs_to :users
-  belongs_to :flights
+  belongs_to :flight
+  has_many :users through: :flights
+
+  validates_presence_of :name
 end
