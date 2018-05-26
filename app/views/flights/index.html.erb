@@ -1,0 +1,16 @@
+<h1><%= "#{current_user.first_name}'s flights" %></h1>
+
+
+
+<h3>filter by airline</h3>
+<%= form_tag("/flights", method: :get) do %>
+  <%= select_tag :flight, options_from_collection_for_select(@flights, :id, :airline), include_blank: true %>
+  <%= submit_tag "Filter" %>
+<% end %>
+
+<%= @flights.each do |flight| %>
+<h3><%= flight.airline %></h3>
+<p>origin:<%= flight.origin_city %></p>
+<p>destination:<%= flight.destination_city %></p>
+<%= link_to 'flight details', user_flight_path(@user, flight) %>
+<% end %>

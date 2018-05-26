@@ -1,0 +1,22 @@
+<h1>flight details</h1>
+<br></br>
+<h2><%= @flight.airline %></h2>
+<li><%= @flight.number %></li>
+<li><%= @flight.origin_city %></li>
+<li><%= @flight.destination_city %></li>
+<li><%= @flight.departure %></li>
+<li><%= @flight.return %></li>
+<li>$<%= @flight.cost %></li>
+<% if @flight.direct %>
+<li><%= 'direct' %></li>
+  <% else %>
+  <li><%= 'not direct' %></li>
+  <% end %>
+<br></br>
+<%= link_to 'edit flight', edit_user_flight_path(@user) %>
+<br></br>
+<%= form_tag(user_flight_path, method: :delete) do %>
+<%= submit_tag 'delete flight' %>
+<% end %>
+<br></br>
+<%= link_to 'all my flights', user_flights_path(@user) %>

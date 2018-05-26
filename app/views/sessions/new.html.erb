@@ -1,0 +1,14 @@
+
+<h2>login to your account</h2>
+
+
+<%= form_for current_user, url: login_path, method: :post do |f| %>
+  <%= f.label "email:" %>
+  <p><%= f.email_field :email %></p>
+  <br></br>
+  <%= f.label "password:" %>
+  <p><%= f.password_field :password %></p></br>
+  <%= f.submit "Login" %>
+<% end %>
+
+<%= link_to "login via GitHub", "/auth/github" %>

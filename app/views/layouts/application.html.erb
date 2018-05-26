@@ -10,6 +10,20 @@
   </head>
 
   <body>
+    <header>
+      Airwaves
+    </header>
+    <% if !logged_in? %>
+            <li><%= link_to "Sign Up", new_user_path %></li>
+            <li><%= link_to "Login", login_path %></li>
+            <% else %>
+            <li><%= link_to "#{current_user.first_name}'s profile", user_path(current_user) %></li>
+            <li><%= link_to "Log Out", logout_path %></li>
+            <% end %>
+
+      <% if flash[:message] %>
+            <%= flash[:message] %>
+        <% end %>
     <%= yield %>
   </body>
 </html>
