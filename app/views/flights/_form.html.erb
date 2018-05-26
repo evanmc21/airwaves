@@ -1,4 +1,14 @@
-<%= form_for @flight, controller: 'flights', action: 'create' do |f| %>
+<div id="error_explanation">
+<% if flight.errors.any? %>
+  <h3>looks like we have some errors:</h3>
+  <ul>
+    <% flight.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  <% end %>
+</div>
+
+<%= form_for([current_user, flight]) do |f| %>
 <%= f.label "Flight Number" %>
 <%= f.number_field :number %>
 <br></br>
@@ -11,9 +21,17 @@
 <%= f.label "Destination City" %>
 <%= f.text_field :destination_city %>
 <br></br>
-<%= f.label "Cost" %>
+<%= f.label "Departure" %>
+<%= f.date_field :departure %>
+<br></br>
+<%= f.label "Return" %>
+<%= f.date_field :return %>
+<br></br>
+<%= f.label "Cost($)" %>
 <%= f.number_field :cost %>
 <br></br>
 <%= f.label "Check the box if the flight is direct." %>
 <%= f.check_box :direct %>
+<br></br>
 <%= f.submit %>
+<% end %>

@@ -1,10 +1,10 @@
 module ApplicationHelper
 
   def current_user
-    user ||= User.find(session[:id])
+    @user = (User.find_by(id: session[:user_id]) || User.new)
   end
 
   def logged_in?
-    current_user.id !=nil
+    !!session[:user_id]
   end
 end

@@ -1,15 +1,20 @@
 class User < ApplicationRecord
   has_many :flights
-  has_many :airlines through: :flights
+  has_many :airlines, through: :flights
   has_secure_password
 
-  validates_presence_of :email, uniqueness: true
-  validates_presence_of :name
+  validates :email, presence: true, uniqueness: true
+  validates_presence_of :first_name, :last_name, :budget
 
-  accepts_nested_attributes_for :flights
-
-    def flight_attributes=(flight_attributes)
+    def flights_attributes=(flights_attributes)
       self.flights.create(flight_attributes)
       self.save
     end
+
+    def self.find_or_create_by_omniauth(auth)
+      where(:email => auth["info"]["email"]).first_or_create do |user| #only get user object if it's the first time we're seeing it.
+        user.password = SecureRandom.hex
+      end
+    end
+
 end

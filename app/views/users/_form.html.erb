@@ -1,0 +1,24 @@
+<div id="error_explanation">
+<% if user.errors.any? %>
+  <h3>looks like we have some errors:</h3>
+  <ul>
+    <% user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  <% end %>
+</div>
+<%= form_for current_user do |f| %>
+<%= f.label "First Name" %>
+<%= f.text_field :first_name %>
+<%= f.label "Last Name" %>
+<%= f.text_field :last_name %>
+<%= f.label "Budget" %>
+<%= f.number_field :budget %>
+<%= f.label "Email" %>
+<%= f.email_field :email %>
+<%= f.label "Password" %>
+<%= f.password_field :password %>
+<%= f.label "Confirm Password" %>
+<%= f.password_field :password_confirmation %>
+<%= f.submit "submit" %>
+<% end %>
