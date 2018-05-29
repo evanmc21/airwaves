@@ -5,26 +5,27 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <header>
-      Airwaves
+      <h1>airwaves.</h1>
+
     </header>
     <% if !logged_in? %>
-            <li><%= link_to "Sign Up", new_user_path %></li>
-            <li><%= link_to "Login", login_path %></li>
-            <% else %>
-            <li><%= link_to "#{current_user.first_name}'s profile", user_path(current_user) %></li>
-            <li><%= link_to "my airlines", airlines_path %>
-            <li><%= link_to "Log Out", logout_path %></li>
-            <% end %>
+      <li><%= link_to "Sign Up", new_user_path %></li>
+      <li><%= link_to "Login", login_path %></li>
+    <% else %>
+      <li><%= link_to "#{current_user.first_name}'s profile", user_path(current_user) %></li>
+      <li><%= link_to "my airlines", airlines_path %>
+        <li><%= link_to "log out", logout_path %></li>
+      <% end %>
 
       <% if flash[:message] %>
-            <%= flash[:message] %>
-        <% end %>
-    <%= yield %>
-  </body>
-</html>
+        <%= flash[:message] %>
+      <% end %>
+      <%= yield %>
+    </body>
+  </html>

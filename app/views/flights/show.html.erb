@@ -1,27 +1,36 @@
-<h1>flight details</h1>
-<br></br>
-<h2><%= @flight.airline %></h2>
-<p>flight number: <%= @flight.number %></p>
-<p>origin city: <%= @flight.origin_city %></p>
-<p>destination city: <%= @flight.destination_city %></p>
-<p>departure: <%= @flight.departure %></p>
-<p>return: <%= @flight.return %></p>
-<p>cost($): <%= @flight.cost %></p>
+<h2>flight details:</h2>
+<h3><%= @flight.airline %></h3>
+<p>flight number:
+  <%= @flight.number %></p>
+<p>origin city:
+  <%= @flight.origin_city %></p>
+<p>destination city:
+  <%= @flight.destination_city %></p>
+<p>departure:
+  <%= @flight.departure %></p>
+<p>return:
+  <%= @flight.return %></p>
+<p>cost($):
+  <%= @flight.cost %></p>
 <% if @flight.direct %>
-<p><%= 'direct' %></li>
-  <% else %>
+  <p><%= 'direct' %></li>
+<% else %>
   <p><%= 'not direct' %></li>
-  <% end %>
+<% end %>
 <br></br>
-<%= link_to 'edit flight', edit_user_flight_path(@user) %>
+<%= form_tag(edit_user_flight_path(@user), method: :get) do %>
+<%= submit_tag 'edit flight' %>
+<% end %>
 <br></br>
 <%= form_tag(user_flight_path, method: :delete) do %>
 <%= submit_tag 'delete flight' %>
 <% end %>
 <br></br>
-<%= link_to 'all my flights', user_flights_path(@user) %>
+<%= form_tag(user_flights_path(@user), method: :get) do %>
+<%= submit_tag 'my flights' %>
+<% end %>
 <br></br>
 <%= form_tag(new_airline_path, method: :get) do %>
-	<%= hidden_field_tag :flight_id, @flight.id%>
-	<%= submit_tag "add rewards number" %>
+<%= hidden_field_tag :flight_id, @flight.id%>
+<%= submit_tag "add rewards number" %>
 <% end %>

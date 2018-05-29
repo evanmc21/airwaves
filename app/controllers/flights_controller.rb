@@ -7,14 +7,6 @@ class FlightsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @flights = @user.flights
-
-    # @flights = Flight.all
-    # @airlines = Airline.all
-    # if !params[:airline].blank?
-    #   @flights = Flight.by_airline(params[:airline])
-    # else
-    #   @flights = Flight.all
-    # end
   end
 
   def new

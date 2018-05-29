@@ -1,12 +1,15 @@
-<label>First Name:</label>
-<p><%= current_user.first_name %></p>
-<label>Last Name:</label>
-<p><%= current_user.last_name %></p>
-<label>Budget:</label>
-<p><%= current_user.budget %></p>
+<h2>your profile</h2>
+<p><%= current_user.first_name %> <%= current_user.last_name %></p>
+<p>budget: <%= current_user.budget %></p>
 <br></br>
-<p><%= link_to 'edit user details', edit_user_path %></p>
+<%= form_tag(edit_user_path, method: :get) do %>
+<%= submit_tag 'edit user details' %>
+<% end %>
 <br></br>
-<p><%= link_to 'see my flights', user_flights_path(@user) %></p>
+<%= form_tag(user_flights_path(@user), method: :get) do %>
+<%= submit_tag 'my flights' %>
+<% end %>
 <br></br>
-<p><%=link_to 'create flight', new_user_flight_path(@user) %></p>
+<%= form_tag(new_user_flight_path(@user), method: :get) do %>
+<%= submit_tag 'create flight' %>
+<% end %>

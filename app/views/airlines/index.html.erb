@@ -1,6 +1,4 @@
 
-
-
 <h3>filter by airline</h3>
 <%= form_tag(airlines_path, method: :get) do %>
 <%= collection_select :airline, :name, @airlines, :name, :name %>
@@ -10,5 +8,7 @@
 <% @airlines.each do |airline| %>
 <h3><%= airline.name %></h3>
 <p>rewards member: #<%= airline.rewards_number %></p>
-<%= link_to 'edit airline', edit_airline_path(airline) %>
+<%= form_tag(edit_airline_path(airline), method: :get) do %>
+<%= submit_tag 'edit airline' %>
+<% end %>
 <% end %>

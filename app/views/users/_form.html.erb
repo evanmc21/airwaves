@@ -8,17 +8,17 @@
   <% end %>
 </div>
 <%= form_for current_user do |f| %>
-<%= f.label "First Name" %>
-<%= f.text_field :first_name %>
-<%= f.label "Last Name" %>
-<%= f.text_field :last_name %>
-<%= f.label "Budget" %>
-<%= f.number_field :budget %>
-<%= f.label "Email" %>
-<%= f.email_field :email %>
-<%= f.label "Password" %>
-<%= f.password_field :password %>
-<%= f.label "Confirm Password" %>
-<%= f.password_field :password_confirmation %>
+<%= f.label "first name" %>
+<%= f.text_field :first_name %></br>
+<%= f.label "last name" %>
+<%= f.text_field :last_name %></br>
+<%= f.label "budget($)" %>
+<%= f.number_field :budget %></br>
+<%= f.label "email" %>
+<%= f.email_field :email %></br>
+<%= f.label "password" %>
+<%= f.password_field :password %></br>
+<%= f.label "confirm password" %>
+<%= f.password_field :password_confirmation %></br>
 <%= f.submit "submit" %>
 <% end %>
