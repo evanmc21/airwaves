@@ -1,24 +1,16 @@
 # README
+the airwaves app is a basic rails application that allows a user to create an account and keep track of their upcoming travel flights and add reward membership numbers to the airlines they use.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##Usage
+To use, clone the repository, cd into, and run the following commands:
 
-Things you may want to cover:
+$rake db:migrate
+$rails s
 
-* Ruby version
+Then navigate to http://localhost:3000 where you can sign up and use the application.
 
-* System dependencies
+##Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/evanmc21/airwaves. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+##License
+The app is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
