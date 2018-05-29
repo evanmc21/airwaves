@@ -10,7 +10,7 @@
 
 <%= form_for([current_user, flight]) do |f| %>
 <%= f.label "Flight Number" %>
-<%= f.number_field :number %>
+<%= f.text_field :number %>
 <br></br>
 <%= f.label "Airline" %>
 <%= f.text_field :airline %>
