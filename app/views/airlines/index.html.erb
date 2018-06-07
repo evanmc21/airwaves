@@ -1,4 +1,3 @@
-
 <h3>filter by airline</h3>
 <%= form_tag(airlines_path, method: :get) do %>
 <%= collection_select :airline, :name, @airlines, :name, :name %>

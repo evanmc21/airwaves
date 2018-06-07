@@ -1,6 +1,8 @@
 
 <h2>login to your account</h2>
-
+<% if flash[:message] %>
+  <%= flash[:message] %>
+<% end %>
 
 <%= form_for current_user, url: login_path, method: :post do |f| %>
   <%= f.label "email:" %>
