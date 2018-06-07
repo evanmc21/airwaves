@@ -26,13 +26,13 @@ class SessionsController < ApplicationController
 
 private
   # def login_error
-  #   # if params[:email].empty?
-  #   #   flash[:message] = "Please enter a valid email."
-  #   # elsif !@user.authenticate(params[:password])
-  #   #   flash[:message] = "Please enter a valid password."
-  #   # else
-  #   #   flash[:message] = "Please fill out all fields."
-  #   # end
+  #   if params[:email].empty?
+  #     flash[:message] = "Please enter a valid email."
+  #   elsif !@user.authenticate(params[:password])
+  #     flash[:message] = "Please enter a valid password."
+  #   else
+  #     flash[:message] = "Please fill out all fields."
+  #   end
   #   if params[:email].empty? || params[:password].empty?
   # 			flash[:message] = "Please enter a valid email and password."
   # 		end

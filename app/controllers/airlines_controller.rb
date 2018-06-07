@@ -39,6 +39,7 @@ class AirlinesController < ApplicationController
       render :edit
     else
       flash[:message] = "oops. you can only edit your airlines."
+      redirect_to user_flight_path
     end
   end
 
