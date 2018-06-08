@@ -1,6 +1,6 @@
 <h2>your profile</h2>
 <p><%= current_user.first_name %> <%= current_user.last_name %></p>
-<p>budget: <%= current_user.budget %></p>
+<p>budget($): <%= current_user.budget %></p>
 <br></br>
 <%= form_tag(edit_user_path, method: :get) do %>
 <%= submit_tag 'edit user details' %>

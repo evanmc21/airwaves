@@ -19,9 +19,6 @@ class AirlinesController < ApplicationController
     @flight = Flight.find(params[:flight_id])
   end
 
-  # def show
-  #   no_route_redirect
-  # end
 
   def create
     @flight = Flight.find(params[:airline][:flight_id])
@@ -35,11 +32,11 @@ class AirlinesController < ApplicationController
   end
 
   def edit
-    if airline_user
+    if airline_user?
       render :edit
     else
       flash[:message] = "oops. you can only edit your airlines."
-      redirect_to user_flight_path
+      redirect_to user_path(current_user)
     end
   end
 
@@ -53,7 +50,7 @@ class AirlinesController < ApplicationController
 
   def destroy
     @flight = @airline.flight
-    if airline_user
+    if airline_user?
       @airline.destroy
       @flight.save
       redirect_to user_flight_path(@flight.user, @flight)
@@ -73,7 +70,7 @@ class AirlinesController < ApplicationController
     @airline = Airline.find_by(id: params[:id])
   end
 
-  def airline_user
+  def airline_user?
     current_user == @airline.flight.user
   end
 
