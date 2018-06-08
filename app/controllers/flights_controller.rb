@@ -14,7 +14,7 @@ class FlightsController < ApplicationController
     @flight = @user.flights.build
   end
 
-  def Show
+  def show
     @user = User.find(params[:user_id])
     @flight = @user.flights.find(params[:id])
   end

@@ -18,15 +18,15 @@
   <p><%= 'not direct' %></li>
 <% end %>
 <br></br>
-<%= form_tag(edit_user_flight_path(@user), method: :get) do %>
+<%= form_tag(edit_user_flight_path(@flight.user, @flight), method: :get) do %>
 <%= submit_tag 'edit flight' %>
 <% end %>
 <br></br>
-<%= form_tag(user_flight_path, method: :delete) do %>
+<%= form_tag(user_flight_path(@flight.user, @flight), method: :delete) do %>
 <%= submit_tag 'delete flight' %>
 <% end %>
 <br></br>
-<%= form_tag(user_flights_path(@user), method: :get) do %>
+<%= form_tag(user_flights_path(@flight.user), method: :get) do %>
 <%= submit_tag 'my flights' %>
 <% end %>
 <br></br>
