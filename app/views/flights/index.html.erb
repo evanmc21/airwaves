@@ -1,6 +1,6 @@
 <h1><%= "#{current_user.first_name}'s flights" %></h1>
 
-<%= @flights.each do |flight| %>
+<% @flights.each do |flight| %>
 <h3><%= flight.airline %></h3>
 <p>origin:<%= flight.origin_city %></p>
 <p>destination:<%= flight.destination_city %></p>
