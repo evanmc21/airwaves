@@ -16,16 +16,17 @@ class AirlinesController < ApplicationController
 
   def new
     @airline = Airline.new
-    @flight = Flight.find(params[:flight_id])
+  end
+
+  def show
+
   end
 
 
   def create
-    @flight = Flight.find(params[:airline][:flight_id])
-    @airline = @flight.airlines.build(airline_params)
+    @airline = Airline.new(airline_params)
     if @airline.save
-      @airline = Airline.new
-      redirect_to user_flight_path(@flight.user.id, @flight)
+      redirect_to airline_path(@airline)
     else
       render :new
     end

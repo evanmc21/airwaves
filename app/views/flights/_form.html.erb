@@ -8,30 +8,32 @@
   <% end %>
 </div>
 
-<%= form_for([current_user, flight]) do |f| %>
-<%= f.label "Flight Number" %>
-<%= f.text_field :number %>
+<%= form_tag("/flights", method: "post") do %>
+<%= label_tag "Flight Number" %>
+<%= text_field_tag :number %>
 <br></br>
-<%= f.label "Airline" %>
-<%= f.text_field :airline %>
+<%= label_tag "Airline" %>
+<%= text_field_tag :airline %>
 <br></br>
-<%= f.label "Origin City" %>
-<%= f.text_field :origin_city %>
+<%= label_tag "Origin City" %>
+<%= text_field_tag :origin_city %>
 <br></br>
-<%= f.label "Destination City" %>
-<%= f.text_field :destination_city %>
+<%= label_tag "Destination City" %>
+<%= text_field_tag :destination_city %>
 <br></br>
-<%= f.label "Departure" %>
-<%= f.date_field :departure %>
+<%= label_tag "Departure" %>
+<%= date_field_tag :departure %>
 <br></br>
-<%= f.label "Return" %>
-<%= f.date_field :return %>
+<%= label_tag "Return" %>
+<%= date_field_tag :return %>
 <br></br>
-<%= f.label "Cost($)" %>
-<%= f.number_field :cost %>
+<%= label_tag "Cost($)" %>
+<%= number_field_tag :cost %>
 <br></br>
-<%= f.label "Check the box if the flight is direct." %>
-<%= f.check_box :direct %>
+<%= label_tag "Check the box if the flight is direct." %>
+<%= check_box_tag :direct %>
 <br></br>
-<%= f.submit %>
+<%= hidden_field_tag :user_id, value = current_user.id %>
+<%= hidden_field_tag :airline_id, value = airline.id %>
+<%= submit_tag %>
 <% end %>
