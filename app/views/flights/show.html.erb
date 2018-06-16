@@ -17,10 +17,6 @@
   <p><%= 'not direct' %></li>
 <% end %>
 <br></br>
-<%= form_tag(edit_user_flight_path(@flight.user, @flight), method: :get) do %>
-<%= submit_tag 'edit flight' %>
-<% end %>
-<br></br>
 <%= form_tag(user_flight_path(@flight.user, @flight), method: :delete) do %>
 <%= submit_tag 'delete flight' %>
 <% end %>
