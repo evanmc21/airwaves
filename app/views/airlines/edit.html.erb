@@ -1,6 +1,6 @@
 <h2>edit airline</h2>
 
-<%= render partial: 'form', locals: {airline: @airline, flight: @airline.flight} %>
+<%= render partial: 'form', locals: {airline: @airline, flight: @flight} %>
 
 
 <%= form_tag(airline_path(@airline),method: :delete) do %>

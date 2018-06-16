@@ -1,6 +1,7 @@
 class AirlinesController < ApplicationController
   before_action :find_airline, only: [:show, :edit, :update, :destroy]
   before_action :authentication_required
+  before_action :current_user
 
   def index
 
@@ -19,21 +20,21 @@ class AirlinesController < ApplicationController
   end
 
   def show
-
+    @airline = Airline.find(params[:id])
   end
 
 
   def create
     @airline = Airline.new(airline_params)
     if @airline.save
-      redirect_to airline_path(@airline)
+      redirect_to user_flight_path
     else
       render :new
     end
   end
 
   def edit
-    if airline_user?
+    if current_user
       render :edit
     else
       flash[:message] = "oops. you can only edit your airlines."
@@ -43,22 +44,17 @@ class AirlinesController < ApplicationController
 
   def update
     if @airline.update(airline_params)
-      redirect_to user_flight_path(@airline.flight.user, @airline.flight)
+      redirect_to airlines_path
     else
       render :edit
     end
   end
 
   def destroy
-    @flight = @airline.flight
-    if airline_user?
-      @airline.destroy
-      @flight.save
-      redirect_to user_flight_path(@flight.user, @flight)
-    else
-      flash[:message] = "oops. you can only delete your airlines."
-      redirect_to user_path(current_user)
-    end
+    @airline = Airline.find(params[:id])
+    @airline.destroy
+    redirect_to airlines_path
+
   end
 
     private
@@ -71,9 +67,9 @@ class AirlinesController < ApplicationController
     @airline = Airline.find_by(id: params[:id])
   end
 
-  def airline_user?
-    current_user == @airline.flight.user
-  end
+  # def airline_user?
+  #   current_user == @airline.flight.user
+  # end
 
   def airline_name
     if params[:airline]

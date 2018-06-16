@@ -1,2 +1,30 @@
 <h2><%= @airline.name %></h2>
 <p>rewards # <%= @airline.rewards_number %></p>
+
+<h3>so, like, create a new flight</h3>
+<%= form_tag("/flights", method: "post") do %>
+<%= label_tag "Flight Number" %>
+<%= text_field_tag "flight[number]"%>
+<br></br>
+<%= label_tag "Origin City" %>
+<%= text_field_tag "flight[origin_city]" %>
+<br></br>
+<%= label_tag "Destination City" %>
+<%= text_field_tag "flight[destination_city]" %>
+<br></br>
+<%= label_tag "Departure" %>
+<%= date_field_tag "flight[departure]" %>
+<br></br>
+<%= label_tag "Return" %>
+<%= date_field_tag "flight[return]" %>
+<br></br>
+<%= label_tag "Cost($)" %>
+<%= number_field_tag "flight[cost]" %>
+<br></br>
+<%= label_tag "Check the box if the flight is direct." %>
+<%= check_box_tag "flight[direct]" %>
+<br></br>
+<%= hidden_field_tag "flight[user_id]", value = current_user.id %>
+<%= hidden_field_tag "flight[airline_id]", value = @airline.id %>
+<%= submit_tag 'create flight'%>
+<% end %>
