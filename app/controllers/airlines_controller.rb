@@ -27,7 +27,7 @@ class AirlinesController < ApplicationController
   def create
     @airline = Airline.new(airline_params)
     if @airline.save
-      redirect_to user_flight_path
+      redirect_to airlines_path
     else
       render :new
     end
