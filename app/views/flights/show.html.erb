@@ -1,5 +1,4 @@
 <h2>flight details:</h2>
-<h3><%= @flight.airline %></h3>
 <p>flight number:
   <%= @flight.number %></p>
 <p>origin city:
@@ -30,7 +29,3 @@
 <%= submit_tag 'my flights' %>
 <% end %>
 <br></br>
-<%= form_tag(new_airline_path, method: :get) do %>
-<%= hidden_field_tag :flight_id, @flight.id%>
-<%= submit_tag "add rewards number" %>
-<% end %>

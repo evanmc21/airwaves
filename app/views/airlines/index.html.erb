@@ -10,4 +10,7 @@
 <%= form_tag(edit_airline_path(airline), method: :get) do %>
 <%= submit_tag 'edit airline' %>
 <% end %>
+<%= form_tag(airline_path(airline), method: :get) do %>
+<%= submit_tag 'view airline' %>
+<% end %>
 <% end %>

@@ -1,7 +1,7 @@
 <h1><%= "#{current_user.first_name}'s flights" %></h1>
 
 <% @flights.each do |flight| %>
-<h3><%= flight.airline %></h3>
+<h3>Departure: <%= flight.departure %></h3>
 <p>origin:<%= flight.origin_city %></p>
 <p>destination:<%= flight.destination_city %></p>
 <%= link_to 'flight details', user_flight_path(@user, flight) %>

@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   resources :users do
-    resources :airlines
+    resources :flights
   end
-  resources :flights
-
+  resources :airlines
 
   get '/login' => 'sessions#new'
   post '/sessions', to: 'sessions#create'
