@@ -1,14 +1,16 @@
 <h2>your profile</h2>
-<p><%= current_user.first_name %> <%= current_user.last_name %></p>
-<p>budget($): <%= current_user.budget %></p>
+<p><%= current_user.first_name %>
+  <%= current_user.last_name %></p>
+<p>budget($):
+  <%= current_user.budget %></p>
 <br></br>
 <%= form_tag(edit_user_path, method: :get) do %>
 <%= submit_tag 'edit user details' %>
 <% end %>
 <br></br>
-<%= form_tag(user_flights_path(@user), method: :get) do %>
-<%= submit_tag 'my flights' %>
-<% end %>
+<p>
+  <%= link_to "my flights", user_flights_path(@user), :class => "my_flights" %>
+</p>
 <br></br>
 <%= form_tag(new_airline_path, method: :get) do %>
 <%= submit_tag "create airline" %>
