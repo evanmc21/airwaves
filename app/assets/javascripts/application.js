@@ -17,3 +17,5 @@
 //= require users
 //= require flights
 //= require airlines
+//= require jquery
+//= require jquery_ujs

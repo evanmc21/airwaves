@@ -10,6 +10,7 @@ class FlightsController < ApplicationController
     respond_to do |format|
       format.html {render :index}
       format.json {render json: @flights, each_serializer: FlightSerializer}
+    end
   end
 
   def show
