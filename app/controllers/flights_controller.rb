@@ -2,13 +2,13 @@ class FlightsController < ApplicationController
   # before_action :find_flight, only: [:show, :edit, :update, :destroy]
   # # before_action :authentication_required
   # # before_action :authorization_required
-  before_action :current_user
+  before_action :set_user
 
   def index
     @user = User.find(params[:user_id])
     @flights = @user.flights
     respond_to do |format|
-      format.html {render :index}
+      format.html {render :index, :layout => false}
       format.json {render json: @flights, each_serializer: FlightSerializer}
     end
   end
@@ -16,6 +16,11 @@ class FlightsController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @flight = @user.flights.find(params[:id])
+    respond_to do |format|
+      format.html {render :show, :layout => false}
+      format.json {render json: @flights, serializer: FlightSerializer}
+    end
+
   end
 
   def create
@@ -49,8 +54,8 @@ class FlightsController < ApplicationController
     @flight = Flight.find_by(id: params[:id])
   end
 
-  def flight_user
-    current_user == @flight.user
+  def set_user
+    @user = current_user
   end
 
 
