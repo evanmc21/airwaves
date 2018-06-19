@@ -1,30 +1,32 @@
 <h2><%= @airline.name %></h2>
-<p>rewards # <%= @airline.rewards_number %></p>
+<p>rewards #
+  <%= @airline.rewards_number %></p>
 
 <h3>so, like, create a new flight</h3>
-<%= form_tag("/flights", method: "post") do %>
-<%= label_tag "Flight Number" %>
-<%= text_field_tag "flight[number]"%>
+
+<%= form_for(@flight) do |f| %>
+<%= f.label "flight number" %>
+<%= f.text_field :number, placeholder: "flight number" %>
 <br></br>
-<%= label_tag "Origin City" %>
-<%= text_field_tag "flight[origin_city]" %>
+<%= f.label "origin city" %>
+<%= f.text_field :origin_city, placeholder: "runaway" %>
 <br></br>
-<%= label_tag "Destination City" %>
-<%= text_field_tag "flight[destination_city]" %>
+<%= f.label "destination city" %>
+<%= f.text_field :destination_city, placeholder: "neverland"%>
 <br></br>
-<%= label_tag "Departure" %>
-<%= date_field_tag "flight[departure]" %>
+<%= f.label "departure" %>
+<%= f.date_field :departure%>
 <br></br>
-<%= label_tag "Return" %>
-<%= date_field_tag "flight[return]" %>
+<%= f.label "return" %>
+<%= f.date_field :return %>
 <br></br>
-<%= label_tag "Cost($)" %>
-<%= number_field_tag "flight[cost]" %>
+<%= f.label "cost($)" %>
+<%= f.number_field :cost, placeholder: "love don't cost a thing" %>
 <br></br>
-<%= label_tag "Check the box if the flight is direct." %>
-<%= check_box_tag "flight[direct]" %>
+<%= f.label "direct?" %>
+<%= f.check_box :direct %>
 <br></br>
-<%= hidden_field_tag "flight[user_id]", value = current_user.id %>
-<%= hidden_field_tag "flight[airline_id]", value = @airline.id %>
-<%= submit_tag 'create flight'%>
+<%= f.hidden_field :user_id, value: current_user.id %>
+<%= f.hidden_field :airline_id, value: @airline.id %>
+<%= f.submit 'create flight' %>
 <% end %>
