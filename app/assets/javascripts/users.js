@@ -4,14 +4,14 @@ $(function(){
       $("div.flights").html(response)
     })
 
-    $.get(this.href).success(function(json){
+    // $.get(this.href).success(function(json){
+    //   var $ol = $("div.flights ol")
+    //     $ol.html(" ")
+        // json.forEach(function(flight){
+        // $ol.append("<li>" + flight.destination_city + "</li>")
+      // })
+      e.preventDefault();
+  })
 
-      var $ol = $("div.flights ol")
-        $ol.html(" ")
-        json.forEach(function(flight){
-        $ol.append(flight.destination_city)
-      })
   })
-    e.preventDefault();
-  })
-})
+// })
