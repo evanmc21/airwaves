@@ -1,14 +1,15 @@
-$(function(){
-  $(".js_next").on("click", function(){
-    var nextID = parseInt($(".js-next").attr("data-id")) + 1;
-    $.get(this.href + nextID + ".json", function(data){
-      $.get(".number").text(data["number"])
-      $.get(".origin_city").text(data["origin_city"])
-      $.get(".destination_city").text(data["destination_city"])
-      $.get(".departure").text(data["departure"])
-      $.get(".return").text(data["return"])
-      $.get(".direct").text(data["direct"])
-      $(".js-next").attr("data-id", data["id"]);
-    });
-  });
-});
+// $(function(){
+//   $(".js_next").on("click", function(){
+//     var nextID = parseInt($(".js-next").attr("data-id")) + 1;
+//     $.get("/flights/" + nextID + ".json", function(data){
+//       var flight = data;
+//       $.get(".number").text(flight["number"])
+//       $.get(".origin_city").text(flight["origin_city"])
+//       $.get(".destination_city").text(flight["destination_city"])
+//       $.get(".departure").text(flight["departure"])
+//       $.get(".return").text(flight["return"])
+//       $.get(".direct").text(flight["direct"])
+//       $(".js-next").attr("data-id", flight["id"]);
+//     });
+//   });
+// });
