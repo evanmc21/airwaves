@@ -25,4 +25,4 @@
 <%= submit_tag 'my flights' %>
 <% end %>
 <br></br>
-<%= link_to 'next flight', user_flight_path(@flight.user, @flight), :class => "js_next" %>
+<a href="#" class="js_next" data-id="<%=@flight.id%>">next flight</a>
