@@ -16,10 +16,10 @@ class FlightsController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @flight = @user.flights.find(params[:id])
-    # respond_to do |format|
-    #   format.html {render :show, :layout => false}
-    #   format.json {render json: @flights, serializer: FlightSerializer}
-    # end
+    respond_to do |format|
+      format.html {render :show, :layout => false}
+      format.json {render json: @flights, serializer: FlightSerializer}
+    end
 
   end
 
