@@ -5,14 +5,16 @@ class AirlinesController < ApplicationController
 
   def index
 
-    if params[:airline]
-      @airlines = Airline.filter_by_airline(params[:airline][:name])
-    elsif params[:user_id]
-      @user= User.find(params[:user_id])
-      @airlines = @user.airlines
-    else
-      @airlines = Airline.all
-    end
+    # if params[:airline]
+    #   @airlines = Airline.filter_by_airline(params[:airline][:name])
+    # elsif params[:user_id]
+    #   @user= User.find(params[:user_id])
+    #   @airlines = @user.airlines
+    # else
+    #   @airlines = Airline.all
+    # end
+
+    @airline = Airline.new
   end
 
   def new
@@ -21,15 +23,15 @@ class AirlinesController < ApplicationController
 
   def show
     @airline = Airline.find(params[:id])
-    @flights = @airline.flights
-    @flight = Flight.new
+    # @flights = @airline.flights
+    # @flight = Flight.new
   end
 
 
   def create
     @airline = Airline.new(airline_params)
     if @airline.save
-      redirect_to airlines_path
+      render 'airlines/index', :layout => false
     else
       render :new
     end
