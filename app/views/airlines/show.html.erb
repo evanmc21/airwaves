@@ -28,5 +28,7 @@
 <br></br>
 <%= f.hidden_field :user_id, value: current_user.id %>
 <%= f.hidden_field :airline_id, value: @airline.id %>
-<%= f.submit 'create flight' %>
+<%= f.submit %>
 <% end %>
+</br>
+<%= link_to 'my airlines', airlines_path, :class => "my_airlines" %>

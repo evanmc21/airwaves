@@ -1,16 +1,27 @@
-<h3>filter by airline</h3>
+<!-- <h3>filter by airline</h3>
 <%= form_tag(airlines_path, method: :get) do %>
 <%= collection_select :airline, :name, @airlines, :name, :name %>
 <%= submit_tag "filter airlines" %>
+<% end %> -->
+<ol>
+<div class="airlines">
+  <% @airlines.each do |airline| %>
+    <h3><%= airline.name %></h3>
+    <p>rewards member: #<%= airline.rewards_number %></p>
+    <%= form_tag(edit_airline_path(airline), method: :get) do %>
+    <%= submit_tag 'edit airline' %>
+  <% end %>
+  <%= form_tag(airline_path(airline), method: :get) do %>
+  <%= submit_tag 'view airline' %>
 <% end %>
-
-<% @airlines.each do |airline| %>
-<h3><%= airline.name %></h3>
-<p>rewards member: #<%= airline.rewards_number %></p>
-<%= form_tag(edit_airline_path(airline), method: :get) do %>
-<%= submit_tag 'edit airline' %>
 <% end %>
-<%= form_tag(airline_path(airline), method: :get) do %>
-<%= submit_tag 'view airline' %>
-<% end %>
+</div>
+</ol>
+</br>
+<%= form_for(@airline) do |f| %>
+<%= f.label "airline" %>
+<%= f.text_field :name %>
+<%= f.label "rewards no." %>
+<%= f.number_field :rewards_number %>
+<%= f.submit%>
 <% end %>
