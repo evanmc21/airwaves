@@ -13,7 +13,7 @@ class AirlinesController < ApplicationController
     # else
     #   @airlines = Airline.all
     # end
-
+    @airlines = Airline.all
     @airline = Airline.new
   end
 
@@ -23,15 +23,16 @@ class AirlinesController < ApplicationController
 
   def show
     @airline = Airline.find(params[:id])
-    # @flights = @airline.flights
-    # @flight = Flight.new
+    @flights = @airline.flights
+    @flight = Flight.new
   end
 
 
   def create
     @airline = Airline.new(airline_params)
     if @airline.save
-      render 'airlines/index', :layout => false
+      # redirect_to airlines_path
+      render json: @airline
     else
       render :new
     end
