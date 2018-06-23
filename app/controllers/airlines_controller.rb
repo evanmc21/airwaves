@@ -32,7 +32,11 @@ class AirlinesController < ApplicationController
     @airline = Airline.new(airline_params)
     if @airline.save
       # redirect_to airlines_path
-      render json: @airline
+      respond_to do |format|
+        format.html { redirect_to airlines_path }
+        format.json { render json: @airline, status: 201 }
+      end
+      # render json: @airline
     else
       render :new
     end

@@ -8,7 +8,7 @@ class FlightsController < ApplicationController
     @user = User.find(params[:user_id])
     @flights = @user.flights
     respond_to do |format|
-      format.html {render :index, :layout => false}
+      format.html {render :index}
       format.json {render json: @flights, each_serializer: FlightSerializer}
     end
   end
