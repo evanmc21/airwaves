@@ -25,24 +25,13 @@ $(function(){
 $(function(){
   $("#new_airline").on("submit", function(e){
     // alert("wtf is up kyle?")
-    url = this.action
-    console.log(url)
-
-    data = {
-      'authenticity_token': $("input[name='authenticity_token']").val(),
-      'airline': {
-        'name': $("#airline_name").val(),
-        'rewards_number': $("#airline_rewards_number").val()
-      }
-    }
-
     $.ajax({
       type: "POST",
-      url: url,
-      data: data,
+      url: this.action
+      data: $(this).serialize(),
       success: function(response){
-        var $ol = $("div.airlines ol")
-        $ol.append(response);
+        var $div = $("div.airlines ol")
+        $div.append(response);
       }
     })
     e.preventDefault();
