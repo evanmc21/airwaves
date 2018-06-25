@@ -10,6 +10,7 @@ $(function(){
       $.get(".flightReturn").text(flight["return"]);
       $.get(".flightDirect").text(flight["direct"]);
       $(".js-next").attr("data-id", flight["id"]);
+
     });
   });
 });
