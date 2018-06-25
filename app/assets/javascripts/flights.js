@@ -1,14 +1,15 @@
 $(function(){
-  $(".js_next").on("click", function(){
+  $(".js-next").on("click", function(){
     var nextID = parseInt($(".js-next").attr("data-id")) + 1;
-    $.get("/flights/" + nextID + ".json", function(data){
+    var userID = parseInt(window.location.href.split("/")[4])
+    $.get(`/users/${userID}/flights/${nextID}`, function(data){
       var flight = data;
-      $.get(".flightNumber").text(flight["number"]);
-      $.get(".flightOrigin_city").text(flight["origin_city"]);
-      $.get(".flightDestination_city").text(flight["destination_city"]);
-      $.get(".flightDeparture").text(flight["departure"]);
-      $.get(".flightReturn").text(flight["return"]);
-      $.get(".flightDirect").text(flight["direct"]);
+      $(".flightNumber").text(flight["number"]);
+      $(".flightOrigin_city").text(flight["origin_city"]);
+      $(".flightDestination_city").text(flight["destination_city"]);
+      $(".flightDeparture").text(flight["departure"]);
+      $(".flightReturn").text(flight["return"]);
+      $(".flightDirect").text(flight["direct"]);
       $(".js-next").attr("data-id", flight["id"]);
 
     });
