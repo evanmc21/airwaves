@@ -1,20 +1,21 @@
 <h2>flight details:</h2>
-<p class="flight_number">flight number:
+<p class="flightNumber">flight number:
   <%= @flight.number %></p>
-<p class="origin_city">origin city:
+<p class="flightOrigin_city">origin city:
   <%= @flight.origin_city %></p>
-<p class="destination_city">destination city:
+<p class="flightDestination_city">destination city:
   <%= @flight.destination_city %></p>
-<p class="departure">departure:
+<p class="flightDeparture">departure:
   <%= @flight.departure %></p>
-<p class="return">return:
+<p class="flightReturn">return:
   <%= @flight.return %></p>
-<p class="cost">cost($):
+<p class="flightCost">cost($):
   <%= @flight.cost %></p>
+  <p class="flightDirect">
 <% if @flight.direct %>
-  <p class="direct"><%= 'direct' %></li>
+  <%= 'direct' %></li>
 <% else %>
-  <p class="not_direct"><%= 'not direct' %></li>
+  <%= 'not direct' %></li></p>
 <% end %>
 <br></br>
 <%= form_tag(user_flight_path(@flight.user, @flight), method: :delete) do %>
@@ -25,4 +26,4 @@
 <%= submit_tag 'my flights' %>
 <% end %>
 <br></br>
-<a href="" class="js_next" data-id="<%=@flight.id%>">next flight</a>
+<a href="#" class="js_next" data-id="<%=@flight.id%>">next flight</a>

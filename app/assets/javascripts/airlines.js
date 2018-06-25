@@ -27,7 +27,7 @@ $(function(){
     // alert("wtf is up kyle?")
     $.ajax({
       type: "POST",
-      url: this.action
+      url: this.action,
       data: $(this).serialize(),
       success: function(response){
         var $div = $("div.airlines ol")
