@@ -19,6 +19,11 @@ $(function(){
 
 function Flight(attributes){
   this.id = attributes.id
-  this.name = attributes.name
-  this.rewards_number = attributes.rewards_number
+  this.number = attributes.number
+  this.origin_city = attributes.origin_city
+  this.destination_city = attributes.destination_city
+  this.departure = attributes.departure
+  this.return = attributes.return
+  this.cost = attributes.cost
+  this.direct = attributes.direct
 }
