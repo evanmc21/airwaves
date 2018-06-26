@@ -17,7 +17,7 @@ class FlightsController < ApplicationController
     @user = User.find(params[:user_id])
     @flight = @user.flights.find(params[:id])
     respond_to do |format|
-      format.html {render :show}
+      format.html
       format.json {render json: @flight}
     end
   end
