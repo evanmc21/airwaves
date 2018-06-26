@@ -11,8 +11,14 @@ $(function(){
       $(".flightDeparture").text(flight["departure"]);
       $(".flightReturn").text(flight["return"]);
       $(".flightDirect").text(flight["direct"]);
+      $(".flightCost").text(flight["cost"]);
       $(".js-next").attr("data-id", flight["id"]);
-      // debugger
     });
   });
 });
+
+function Flight(attributes){
+  this.id = attributes.id
+  this.name = attributes.name
+  this.rewards_number = attributes.rewards_number
+}
