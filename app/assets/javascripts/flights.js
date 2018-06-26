@@ -11,7 +11,7 @@ $(function(){
       $(".flightReturn").text(flight["return"]);
       $(".flightDirect").text(flight["direct"]);
       $(".js-next").attr("data-id", flight["id"]);
-
+      debugger
     });
   });
 });
