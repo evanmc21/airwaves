@@ -13,9 +13,9 @@
   <%= @flight.cost %></p>
   <p class="flightDirect">
 <% if @flight.direct %>
-  <%= 'direct' %></li>
+  <%= 'direct' %>
 <% else %>
-  <%= 'not direct' %></li></p>
+  <%= 'not direct' %></p>
 <% end %>
 <br></br>
 <%= form_tag(user_flight_path(@flight.user, @flight), method: :delete) do %>
@@ -26,4 +26,4 @@
 <%= submit_tag 'my flights' %>
 <% end %>
 <br></br>
-<a href="#" class="js-next" data-id="<%=@flight.id%>">next flight</a>
+<a href="" class="js-next" data-id="<%=@flight.id%>">next flight</a>
