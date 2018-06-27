@@ -20,11 +20,3 @@ $(function(){
     e.preventDefault();
   })
 })
-
-// function Airline(attributes){
-//   this.id = attributes.id
-//   this.name = attributes.name
-//   this.rewards_number = attributes.rewards_number
-// }
-//
-// Airline.prototype.formatAirlines = function() {
