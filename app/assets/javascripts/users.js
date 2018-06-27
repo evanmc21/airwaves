@@ -1,8 +1,9 @@
 $(function(){
   $("a.my_flights").on("click", function(e){
     // alert("afjekaf;!")
-    $.get(this.href).success(function(response){
-      $("div.flights").html(response)
+    $.get(this.href, function(response){
+      alert("Beyonce!")
+      $("div.flights").append(response)
     })
 
     // $.get(this.href).success(function(json){

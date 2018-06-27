@@ -1,22 +1,24 @@
 <h2>flight details:</h2>
-<p class="flightNumber">flight number:
-  <%= @flight.number %></p>
-<p class="flightOrigin_city">origin city:
-  <%= @flight.origin_city %></p>
-<p class="flightDestination_city">destination city:
-  <%= @flight.destination_city %></p>
-<p class="flightDeparture">departure:
-  <%= @flight.departure %></p>
-<p class="flightReturn">return:
-  <%= @flight.return %></p>
-<p class="flightCost">cost($):
-  <%= @flight.cost %></p>
+<div class="flight">
+  <p class="flightNumber">flight number:
+    <%= @flight.number %></p>
+  <p class="flightOrigin_city">origin city:
+    <%= @flight.origin_city %></p>
+  <p class="flightDestination_city">destination city:
+    <%= @flight.destination_city %></p>
+  <p class="flightDeparture">departure:
+    <%= @flight.departure %></p>
+  <p class="flightReturn">return:
+    <%= @flight.return %></p>
+  <p class="flightCost">cost($):
+    <%= @flight.cost %></p>
   <p class="flightDirect">
-<% if @flight.direct %>
-  <%= 'direct' %>
-<% else %>
-  <%= 'not direct' %></p>
-<% end %>
+    <% if @flight.direct %>
+      <%= 'direct' %>
+    <% else %>
+      <%= 'not direct' %></p>
+  <% end %>
+</div>
 <br></br>
 <%= form_tag(user_flight_path(@flight.user, @flight), method: :delete) do %>
 <%= submit_tag 'delete flight' %>
