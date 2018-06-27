@@ -5,22 +5,16 @@ $(function(){
     var userID = parseInt(window.location.href.split("/")[4])
     $.get(`/users/${userID}/flights/${nextID}.json`, function(data){
       var flight = data;
-      $(".flightNumber").text(flight["number"]);
-      $(".flightOrigin_city").text(flight["origin_city"]);
-      $(".flightDestination_city").text(flight["destination_city"]);
-      $(".flightDeparture").text(flight["departure"]);
-      $(".flightReturn").text(flight["return"]);
-      $(".flightDirect").text(flight["direct"]);
-      $(".flightCost").text(flight["cost"]);
       $(".js-next").attr("data-id", flight["id"]);
       let newFlight = new Flight(flight)
       let flightHtml = newFlight.formatShow()
-      $(".flightNumber").append(flightHtml)
+      $("div.flight").empty()
+      $("div.flight").append(flightHtml)
 
     });
   });
 });
-
+// convert json response to create a javascript model object
 function Flight(flight){
   this.id = flight.id
   this.number = flight.number
