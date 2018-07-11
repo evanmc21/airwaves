@@ -32,6 +32,8 @@ const createNewAirline = function(values) {
     data: values,
     dataType: 'JSON',
     success: function(data) {
+      $("#airline_name").val("");
+      $("#airline_rewards_number").val("");
       const airline = new Airline(data)
       const response = airline.formatAirline()
       $("#results").html(response)
