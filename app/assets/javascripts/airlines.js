@@ -8,8 +8,10 @@ function Airline(airline) {
 
 Airline.prototype.formatAirline = function() {
   let airlineHTML = `
+  <ol>
     <h3>${this.name}</h3>
     <p>rewards member: #${this.rewards_number}</p>
+    </ol>
   `
   return airlineHTML
 }
@@ -32,7 +34,7 @@ const createNewAirline = function(values) {
     success: function(data) {
       const airline = new Airline(data)
       const response = airline.formatAirline()
-      $("div.airlines ol").html(response)
+      $("#results").html(response)
     }
   })
 }
