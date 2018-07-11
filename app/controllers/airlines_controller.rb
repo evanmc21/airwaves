@@ -31,12 +31,10 @@ class AirlinesController < ApplicationController
   def create
     @airline = Airline.new(airline_params)
     if @airline.save
-      # redirect_to airlines_path
       respond_to do |format|
         format.html { redirect_to airlines_path }
         format.json { render json: @airline}
       end
-      # render json: @airline
     else
       render :new
     end
