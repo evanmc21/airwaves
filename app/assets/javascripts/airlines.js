@@ -1,16 +1,14 @@
-
-
 function Airline(airline) {
   this.id = airline.id
   this.name = airline.name
-  this.rewards_number = airline.rewards_number
+  this.rewardsNumber = airline.rewards_number
 }
 
 Airline.prototype.formatAirline = function() {
   let airlineHTML = `
   <ol>
     <h3>${this.name}</h3>
-    <p>rewards member: #${this.rewards_number}</p>
+    <p>rewards member: #${this.rewardsNumber}</p>
     </ol>
   `
   return airlineHTML
