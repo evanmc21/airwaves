@@ -7,10 +7,11 @@ class FlightsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @flights = @user.flights
-    respond_to do |format|
-      format.html {render :index, :layout => false}
-      format.json {render json: @flights}
-    end
+    # respond_to do |format|
+    #   format.html {render :index, :layout => false}
+    #   format.json {render json: @flights}
+    # end
+    render json: @flights
   end
 
   def show
