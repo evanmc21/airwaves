@@ -6,6 +6,13 @@ function Airline(airline) {
   this.rewards_number = airline.rewards_number
 }
 
+Airline.prototype.formatAirline = function() {
+  let airlineHTML = `
+    <h3>${this.name}</h3>
+    <p>rewards member: #${this.rewards_number}</p>
+  `
+  return airlineHTML
+}
 
 // Event listeners
 $(function(){
