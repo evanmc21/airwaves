@@ -40,18 +40,3 @@ const createNewAirline = function(values) {
     }
   })
 }
-
-
-
-//
-// <% @airlines.each do |airline| %>
-//   <h3><%= airline.name %></h3>
-//   <p>rewards member: #<%= airline.rewards_number %></p>
-//   <%= form_tag(edit_airline_path(airline), method: :get) do %>
-//   <%= submit_tag 'edit airline' %>
-// <% end %>
-//
-// <%= form_tag(airline_path(airline), method: :get) do %>
-// <%= submit_tag 'view airline' %>
-// <% end %>
-// <% end %>
