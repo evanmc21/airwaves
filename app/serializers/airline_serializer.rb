@@ -1,5 +1,5 @@
 class AirlineSerializer < ActiveModel::Serializer
-attributes :id
+attributes :id, :name, :rewards_number
 
 
 end
