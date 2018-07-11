@@ -15,11 +15,6 @@ class AirlinesController < ApplicationController
     # end
     @airlines = Airline.all
     @airline = Airline.new
-
-    respond_to do |format|
-    format.html {render :index}
-    format.json {render json: @airlines}
-    end
   end
 
   def new
