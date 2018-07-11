@@ -1,15 +1,16 @@
 $(function(){
   $("a.my_flights").on("click", function(e){
-    // $.get(this.href, function(response){
-      // alert("Beyonce!")
-      // debugger
-      $.get(this.href).success(function(json){
+      $.get(this.href).success(function(flights){
         var $div = $("div.flights ol")
         $div.html("")
-        json.forEach(function(flight){
+        flights.sort(function(a, b){
+          return a.origin_city.toLowerCase().localeCompare(b.origin_city.toLowerCase());
+        });
+        flights.forEach(function(flight){
           let newFlights = new Flights(flight)
           let flightsHTML = newFlights.formatFlight()
           $("div.flights").append(flightsHTML)
+          // debugger
         })
       })
       e.preventDefault();
@@ -35,3 +36,24 @@ Flights.prototype.formatFlight = function(){
   `
   return flightsHTML
 }
+
+// function renderAlphabeticalFormat(flightsHTML){
+//   flightsHTML.sort(function(a, b) {
+//     return a.origin_city.toLowerCase().localeCompare(b.origin_city.toLowerCase());
+// });
+// }
+
+// function renderFlightsIndex(route) {
+//   $.get(route, flights => {
+//       flights.sort((a, b) => {
+//         return a.originCity > b.originCity
+//       })
+//       console.log(sortedFlights)
+//       flights.forEach(flight => {
+//         let newFlights = new Flights(flight)
+//
+//         let flightsHTML = newFlights.formatFlight()
+//         $("div.flights").append(flightsHTML)
+//       })
+//   })
+// }
