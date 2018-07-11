@@ -34,7 +34,7 @@ class AirlinesController < ApplicationController
       # redirect_to airlines_path
       respond_to do |format|
         format.html { redirect_to airlines_path }
-        format.json { render json: @airline, status: 201 }
+        format.json { render json: @airline}
       end
       # render json: @airline
     else
