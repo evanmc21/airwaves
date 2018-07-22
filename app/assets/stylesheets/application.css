@@ -13,23 +13,29 @@
  *= require_tree .
  *= require_self
  */
-
+.application {
+  text-align: center;
+}
  body {
    background-color: #bdbfbf;
    line-height: 15px;
-   padding: 80px;
+   padding: 40px;
    text-decoration: none;
    background-position: center;
+   font-family: 'Raleway', sans-serif;
  }
 
 h1 {
   color: white;
+  font-weight: lighter;
 }
 
 h2 {
   color: white;
+  font-weight: lighter;
 }
 
 h3 {
   color: white;
+  font-weight: lighter;
 }
