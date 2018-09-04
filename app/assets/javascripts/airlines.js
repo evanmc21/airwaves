@@ -9,6 +9,7 @@ Airline.prototype.formatAirline = function() {
   <ol>
     <h3>${this.name}</h3>
     <p>rewards member: #${this.rewardsNumber}</p>
+    <button><a href="/airlines/${this.id}/edit" style="text-decoration: none; color: white">edit airline</a></button>
     </ol>
   `
   return airlineHTML
