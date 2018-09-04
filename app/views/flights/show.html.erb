@@ -21,11 +21,11 @@
 </div>
 <br></br>
 <%= form_tag(user_flight_path(@flight.user, @flight), method: :delete) do %>
-<%= submit_tag 'delete flight' %>
+<%= button_tag 'delete flight' %>
 <% end %>
 <br></br>
 <%= form_tag(user_flights_path(@flight.user), method: :get) do %>
-<%= submit_tag 'my flights' %>
+<%= button_tag 'my flights' %>
 <% end %>
 <br></br>
 <a href="" class="js-next" data-id="<%=@flight.id%>">next flight</a>

@@ -1,24 +1,36 @@
+<div id="error_explanation">
+<% if @airline.errors.any? %>
+  <h3>looks like we have some errors:</h3>
+  <ul>
+    <% @airline.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  <% end %>
+</div>
+
 <div class="airlines">
   <ol>
     <% @airlines.each do |airline| %>
       <h3><%= airline.name %></h3>
       <p>rewards member: #<%= airline.rewards_number %></p>
       <%= form_tag(edit_airline_path(airline), method: :get) do %>
-      <%= submit_tag 'edit airline' %>
-    <% end %>
+      <%= button_tag 'edit airline' %>
+    <% end %></br>
 
     <%= form_tag(airline_path(airline), method: :get) do %>
-    <%= submit_tag 'view airline' %>
+    <%= button_tag 'view airline' %>
   <% end %>
 <% end %>
 </ol>
 </div>
 <div id="results"></div>
 </br>
+<div class="airline-form">
 <%= form_for(@airline) do |f| %>
-<%= f.label "airline" %>
-<%= f.text_field :name %>
-<%= f.label "rewards no." %>
-<%= f.number_field :rewards_number %>
-<%= f.submit%>
+<%= f.label "airline:" %><br></br>
+<%= f.text_field :name %><br></br>
+<%= f.label "rewards no:" %><br></br>
+<%= f.number_field :rewards_number %><br></br>
+<%= f.button%>
 <% end %>
+</div>

@@ -1,5 +1,5 @@
 
-<div id="error_explanation">
+<!-- <div id="error_explanation">
 <% if airline.errors.any? %>
   <h3>looks like we have some errors:</h3>
   <ul>
@@ -9,11 +9,12 @@
   <% end %>
 </div>
 
-
+<div class="airline-form">
 <%= form_for(airline) do |f| %>
-<%= f.label "airline" %>
-<%= f.text_field :name %>
-<%= f.label "rewards no." %>
-<%= f.number_field :rewards_number %>
-<%= f.submit%>
+<%= f.label "airline" %><br></br>
+<%= f.text_field :name %><br></br>
+<%= f.label "rewards no." %><br></br>
+<%= f.number_field :rewards_number %><br></br>
+<%= f.button%>
 <% end %>
+</div> -->

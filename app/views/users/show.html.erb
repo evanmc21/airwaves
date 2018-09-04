@@ -5,18 +5,20 @@
     <%= current_user.budget %></p>
   <br></br>
   <%= form_tag(edit_user_path, method: :get) do %>
-  <%= submit_tag 'edit user details' %>
+  <%= button_tag 'edit user details' %>
 <% end %>
-<br></br>
-<p>
-  <%= link_to "my flights", user_flights_path(@user), :class => "my_flights" %>
-</p>
+</br>
+
 
 <div class="flights">
   <ol>
   </ol>
 </div>
-<br></br>
+</br>
 <%= form_tag(new_airline_path, method: :get) do %>
-<%= submit_tag "create airline" %>
+<%= button_tag "add airline" %>
 <% end %>
+</br>
+<p>
+  <%= link_to "my flights", user_flights_path(@user), :class => "my_flights" %>
+</p>

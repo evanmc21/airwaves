@@ -1,11 +1,12 @@
 
-<h2>login to your account</h2>
-
+<h2 style="text-align:center">login to your account</h2>
+<div class="login">
 <%= form_tag(sessions_path) do %>
 
   <p>email: <%= email_field_tag :email %></p>
   <p>password: <%= password_field_tag :password %></p></br>
-  <%= submit_tag "Login" %>
+  <%= button_tag "Login" %><br></br>
 <% end %>
 
 <%= link_to "login via GitHub", "/auth/github" %>
+</div>
