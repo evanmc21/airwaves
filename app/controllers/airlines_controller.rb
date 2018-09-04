@@ -5,16 +5,14 @@ class AirlinesController < ApplicationController
 
   def index
 
-    # if params[:airline]
-    #   @airlines = Airline.filter_by_airline(params[:airline][:name])
-    # elsif params[:user_id]
-    #   @user= User.find(params[:user_id])
-    #   @airlines = @user.airlines
-    # else
-    #   @airlines = Airline.all
-    # end
-    @airlines = Airline.all
-    @airline = Airline.new
+    if params[:airline]
+      @airlines = Airline.filter_by_airline(params[:airline][:name])
+    elsif params[:user_id]
+      @user= User.find(params[:user_id])
+      @airlines = @user.airlines
+    else
+      @airlines = Airline.all
+    end
   end
 
   def new
@@ -31,10 +29,7 @@ class AirlinesController < ApplicationController
   def create
     @airline = Airline.new(airline_params)
     if @airline.save
-      respond_to do |format|
-        format.html
-        format.json { render json: @airline}
-      end
+      render :index
     else
       render :new
     end

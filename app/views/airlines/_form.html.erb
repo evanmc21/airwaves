@@ -1,10 +1,8 @@
 
-<!-- <div id="error_explanation">
+<div class="errors">
 <% if airline.errors.any? %>
-  <h3>looks like we have some errors:</h3>
-  <ul>
     <% airline.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+      <ul><%= message %></ul>
     <% end %>
   <% end %>
 </div>
@@ -17,4 +15,4 @@
 <%= f.number_field :rewards_number %><br></br>
 <%= f.button%>
 <% end %>
-</div> -->
+</div>

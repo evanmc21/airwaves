@@ -1,15 +1,10 @@
-<div id="error_explanation">
-<% if @airline.errors.any? %>
-  <h3>looks like we have some errors:</h3>
-  <ul>
-    <% @airline.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  <% end %>
-</div>
+<h3>filter by airline</h3>
+<%= form_tag(airlines_path, method: :get) do %>
+<%= collection_select :airline, :name, @airlines, :name, :name %>
+<%= submit_tag "filter airlines" %>
+<% end %>
 
-<div class="airlines">
-  <ol>
+  <ul>
     <% @airlines.each do |airline| %>
       <h3><%= airline.name %></h3>
       <p>rewards member: #<%= airline.rewards_number %></p>
@@ -21,16 +16,4 @@
     <%= button_tag 'view airline' %>
   <% end %>
 <% end %>
-</ol>
-</div>
-<div id="results"></div>
-</br>
-<div class="airline-form">
-<%= form_for(@airline) do |f| %>
-<%= f.label "airline:" %><br></br>
-<%= f.text_field :name %><br></br>
-<%= f.label "rewards no:" %><br></br>
-<%= f.number_field :rewards_number %><br></br>
-<%= f.button%>
-<% end %>
-</div>
+</ul>
