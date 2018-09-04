@@ -3,7 +3,7 @@ $(function(){
       $.get(this.href).success(function(flights){
         var $div = $("div.flights ol")
         $div.html("")
-        flights.sort(function(a, b){
+        flights.sort(function(b, a){
           return a.origin_city.toLowerCase().localeCompare(b.origin_city.toLowerCase());
         });
         flights.forEach(function(flight){

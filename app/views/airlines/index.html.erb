@@ -4,8 +4,9 @@
 <%= submit_tag "filter airlines" %>
 <% end %>
 
-  <ul>
     <% @airlines.each do |airline| %>
+    <div class="container-airlines">
+
       <h3><%= airline.name %></h3>
       <p>rewards member: #<%= airline.rewards_number %></p>
       <%= form_tag(edit_airline_path(airline), method: :get) do %>
@@ -14,6 +15,6 @@
 
     <%= form_tag(airline_path(airline), method: :get) do %>
     <%= button_tag 'view airline' %>
+  </div>
   <% end %>
 <% end %>
-</ul>
