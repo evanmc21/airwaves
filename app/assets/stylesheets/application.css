@@ -58,6 +58,15 @@ img {
   margin: 0 auto;
 }
 
+.img-user-home {
+  display: block;
+  height: 40%;
+  width: 50%;
+  opacity: 0.7;
+  float: right;
+  vertical-align: middle;
+}
+
 .signup {
   color: white;
   text-align: center;
@@ -87,4 +96,9 @@ a:hover {
 
 input {
   font-size: 13px;
+}
+
+.errors {
+  text-align: center;
+  color: lightpink;
 }

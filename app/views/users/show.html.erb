@@ -7,13 +7,7 @@
   <%= form_tag(edit_user_path, method: :get) do %>
   <%= button_tag 'edit user details' %>
 <% end %>
-</br>
 
-
-<div class="flights">
-  <ol>
-  </ol>
-</div>
 </br>
 <%= form_tag(new_airline_path, method: :get) do %>
 <%= button_tag "add airline" %>
@@ -22,3 +16,9 @@
 <p>
   <%= link_to "my flights", user_flights_path(@user), :class => "my_flights" %>
 </p>
+</br>
+
+<div class="flights">
+  <ol>
+  </ol>
+</div>
