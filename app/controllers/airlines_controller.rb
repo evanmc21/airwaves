@@ -29,7 +29,7 @@ class AirlinesController < ApplicationController
   def create
     @airline = Airline.new(airline_params)
     if @airline.save
-      render :index
+      redirect_to airlines_path
     else
       render :new
     end

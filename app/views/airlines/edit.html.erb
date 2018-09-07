@@ -2,7 +2,8 @@
 
 <%= render partial: 'form', locals: {airline: @airline, flight: @flight} %>
 
-
+<div class="delete-button">
 <%= form_tag(airline_path(@airline),method: :delete) do %>
 		<%= button_tag "delete airline" %>
 <% end %>
+</div>
